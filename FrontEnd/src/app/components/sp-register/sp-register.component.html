@@ -1,0 +1,147 @@
+<div class="container" style="width: 55%;">
+    <div style="text-align: center;">
+
+        <img src="https://img.icons8.com/plasticine/100/000000/add-user-male.png" />
+        <br>
+        <h4> Registration Form </h4>
+    </div>
+    <form #RegisterForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+        <div>
+
+            <div class="form-group mt-3 ml-5 mr-5">
+                <div class="form-group">
+                    <input type="text" style="width: 100%;" class="form-control" placeholder="First Name *" name="fname" [(ngModel)]="sproiders.firstName" value="" #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched" required>
+                    <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First name is required field</small>
+                </div>
+            </div>
+            <div class="form-group mt-3 ml-5 mr-5">
+                <div class="form-group">
+                    <input type="text" style="width: 100%;" class="form-control" placeholder="Last Name *" name="lname" [(ngModel)]="sproiders.lastName" value="" #lname="ngModel" [class.is-invalid]="lname.invalid && lname.touched" required>
+                    <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last name is required field</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="form-group mt-1 ml-5 mr-5">
+                <div class="form-group ml-1 mt-2">
+                    <div class="maxl ">
+                        <label class="radio inline "> 
+                                    <input type="radio" name="gender"  [(ngModel)]="sproiders.gender"  value="Male "  >
+                                    <span> Male </span> 
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label class="radio inline "> 
+                                    <input type="radio" name="gender"  [(ngModel)]="sproiders.gender" value="Female ">
+                                    <span> Female </span>
+                                </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3 ml-5 mr-5">
+                <div class="form-group ">
+                    <input class="form-control " style="width: 100%;" type="text" onfocus="(this.type='date' ) " name="DOB" onblur="(this.type='text' )" [(ngModel)]="sproiders.dob" #DOB="ngModel" placeholder="Date of Birth * " required [class.is-invalid]="DOB.invalid && DOB.touched"
+                    />
+                    <small class=" text-danger" [class.d-none]="DOB.valid || DOB.untouched">Date of Birth is required field</small>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group mt-3 ml-5 mr-5">
+
+                <div class="form-group ">
+                    <input type="text" style="width: 100%;" pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength="10" name="mobile" [(ngModel)]="sproiders.mobile" #mobile="ngModel" class="form-control " placeholder="Your Phone * " required [class.is-invalid]="mobile.invalid && mobile.touched"
+                    />
+                    <div *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+                        <small class="text-danger" *ngIf="mobile.errors.required">Phonenumber is required field</small>
+                        <small class="text-danger" *ngIf="mobile.errors.pattern">Enter the valid Number</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <div class="form-group">
+                <input type="password" style="width: 100%;" class="form-control" [(ngModel)]="sproiders.password" name="password" placeholder="Password *" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+                <small class=" text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+            </div>
+        </div>
+
+        <div class="form-group  mt-3 ml-5 mr-5">
+            <label for="" class="form-conrol">Choose Service *</label>
+            <select style="width: 100%;" class="custom-select mr-sm-2 form-control " [(ngModel)]="sproiders.service_id" #slot="ngModel" name="slot" [class.is-invalid]="slot.invalid && slot.touched" required>
+                    <option class="bg-light text-primary" value="0" [disabled]="true" [selected]="true" >Choose Services</option>
+                    <option  [value]="1">Driver </option>
+                    <option  [value]="2">Gardener</option>
+                    <option  [value]="3">Maid</option>
+                    <option  [value]="4">Plumber</option>
+                    <option  [value]="5">Electrician</option>
+                    <option  [value]="6">Painter</option>
+            </select>
+            <small class="text-danger" [class.d-none]="slot.valid || slot.untouched">Service is Required </small>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="text" class="form-control" placeholder="Email id *" name="username" [(ngModel)]="sproiders.email" value="" #username="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="username.invalid && username.touched" required>
+            <small class="text-danger" [class.d-none]="username.valid || username.untouched">EmailId is Required </small>
+        </div>
+        <div class="form-group ml-5 mr-5">
+            <input type="number" pattern="[1-9]{1}[0-9]{9}" name="aadhar" [(ngModel)]="sproiders.aadharNumber" #aadhar="ngModel" class="form-control " placeholder="Your Aadhar no* " required [class.is-invalid]="aadhar.invalid && aadhar.touched" />
+            <div *ngIf="aadhar.errors && (aadhar.invalid && aadhar.touched)">
+                <small class="text-danger" *ngIf="aadhar.errors.required">Aadhar No is required field</small>
+                <small class="text-danger" *ngIf="aadhar.errors.pattern">Enter the valid Aadhar No Number</small>
+            </div>
+        </div>
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="number" min="0" class="form-control" placeholder="Experience *" name="experience" [(ngModel)]="sproiders.experience" value="" #experience="ngModel" [class.is-invalid]="experience.invalid && experience.touched" required>
+            <small class="text-danger" [class.d-none]="experience.valid || experience.untouched">Experience is Required </small>
+        </div>
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="text" class="form-control" placeholder="Service Name *" name="serviceName" [(ngModel)]="sproiders.serviceName" value="" #serviceName="ngModel" [class.is-invalid]="serviceName.invalid && serviceName.touched" required>
+            <small class="text-danger" [class.d-none]="serviceName.valid || serviceName.untouched">Service Name is Required </small>
+        </div>
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="text" class="form-control" placeholder="Charges *" name="charges" [(ngModel)]="sproiders.charges" value="" #charges="ngModel" [class.is-invalid]="charges.invalid && charges.touched" required>
+            <small class="text-danger" [class.d-none]="charges.valid || charges.untouched">Charges is Required </small>
+        </div>
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <textarea rows="2 " cols="50 " class="form-control " placeholder="Address" [(ngModel)]="sproiders.address" #address="ngModel" name="address" required [class.is-invalid]="address.invalid && address.touched"></textarea>
+            <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is required Field</small>
+        </div>
+
+
+
+
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="submit" [disabled]="RegisterForm.form.invalid" class="btn btn-block btn-login" mat-raised-button color="primary" style=" color: white; background-color:rgb(255, 53, 87);" value="Register " />
+        </div>
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+
+
+
+    </form>
+</div>

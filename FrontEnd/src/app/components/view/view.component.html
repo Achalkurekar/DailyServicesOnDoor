@@ -1,0 +1,58 @@
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="bg-primary text-white">
+                <td colspan="2">
+                    <span style="font-size: large;">Service Provider Details</span>
+                </td>
+            </tr>
+        </thead>
+        <tbody style="font-size: 20px;">
+            <tr>
+                <td>Name</td>
+                <td> {{worker.firstName}} &nbsp; {{worker.lastName}} </td>
+            </tr>
+            <tr>
+                <td>Service Provider</td>
+                <td>
+                    <span *ngIf="worker.service_id===1">Driver</span>
+                    <span *ngIf="worker.service_id===2">Gardener</span>
+                    <span *ngIf="worker.service_id===3">Maid</span>
+                    <span *ngIf="worker.service_id===4">Plumber</span>
+                    <span *ngIf="worker.service_id===5">Electrician</span>
+                    <span *ngIf="worker.service_id===6">Painter</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{worker.gender}}</td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>{{worker.mobile}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{worker.email}}</td>
+            </tr>
+            <tr>
+                <td>Experience</td>
+                <td>{{worker.experience}}</td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>{{worker.dob}}</td>
+            </tr>
+            <tr>
+                <td>Charges</td>
+                <td><b>{{worker.charges}}</b></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>

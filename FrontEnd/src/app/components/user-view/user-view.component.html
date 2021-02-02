@@ -1,0 +1,36 @@
+<div class="container" style="width: 50%;">
+    <br>
+    <br>
+
+    <table class="table  table-hover">
+        <thead>
+            <tr class="table-primary">
+                <td>S.No.</td>
+                <td>Status</td>
+                <td>Service Date</td>
+                <td>View</td>
+                <td>Feedback Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Services ;let i = index" >
+                <td>{{i+1}}</td>
+                <td>
+                    <span *ngIf="item.serstatus==1"><button type="button" style="background-color: rgb(0, 217, 255);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled>Pending</button></span>
+                    <span *ngIf="item.serstatus==2"> <button type="button" style="background-color: rgb(0, 153, 25);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled>Accepted</button>  </span>
+                    <span *ngIf="item.serstatus==3"><button type="button" style="background-color: rgb(202, 97, 90);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled>Rejected</button></span>
+                </td>
+                <td>{{item.serDate}}</td>
+                <td><button type="button" style="background-color: rgb(32, 158, 216) ; color: white;" class="form-control btn-sm" (click)="view(item.service_provider)">View</button></td>
+                <td>
+                    <span *ngIf="item.feedbackstatus==1"><button type="button" style="background-color: rgb(226, 252, 110);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled>Pending </button></span>
+                    <span *ngIf="item.feedbackstatus==2"><button type="button" style="background-color: rgb(38, 222, 235);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" (click)="fillFeedback(item.id)" >Not Filled </button></span>
+                    <span *ngIf="item.feedbackstatus==3"> <button type="button" style="background-color: rgb(202, 97, 90);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled> Canceled</button>  </span>
+                    <span *ngIf="item.feedbackstatus==4"><button type="button" style="background-color: rgb(20, 197, 29);width: 75%; color: rgb(248, 248, 248);" class="form-control btn-sm" disabled >Filled </button></span>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,49 @@
+<br>
+<br>
+
+<div class="container" style="width: 70%;">
+    <h2 style="text-align: center; color: lightseagreen;">List Of All Service Provider</h2>
+    <br>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>S.No</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Mobile </td>
+                <td>Email</td>
+                <td>Address</td>
+                <td>Aadhar No</td>
+                <td>Gender</td>
+                <td>Service</td>
+                <td>DOB</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of AllSP; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.aadharNumber}}</td>
+                <td>{{item.gender}}</td>
+                <td>
+                    <span *ngIf="item.service_id===1">Driver</span>
+                    <span *ngIf="item.service_id===2">Gardener</span>
+                    <span *ngIf="item.service_id===3">Maid</span>
+                    <span *ngIf="item.service_id===4">Plumber</span>
+                    <span *ngIf="item.service_id===5">Electrician</span>
+                    <span *ngIf="item.service_id===6">Painter</span>
+                </td>
+                <td>{{item.dob}}</td>
+
+
+            </tr>
+        </tbody>
+
+    </table>
+</div>

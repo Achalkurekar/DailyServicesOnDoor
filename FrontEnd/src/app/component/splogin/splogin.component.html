@@ -1,0 +1,33 @@
+<div class="container">
+    <br>
+    <br>
+    <div class="mt4">
+        <div style="text-align: center;">
+            <img src="../../../assets/splogin2.jpg" style="width: 220px; height: 220px;" />
+        </div>
+        <div style="text-align: center;">
+            <form class="example-form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width" style="width: 65%;">
+                    <mat-label>Email</mat-label>
+                    <input style="width: 100%;" matInput placeholder="Please Enter Email" [(ngModel)]="credentials.username" name="uname" #uname="ngModel" [class.is-invalid]="uname.invalid && uname.touched" required>
+                    <small class=" text-danger" [class.d-none]="uname.valid || uname.untouched">Email is required field</small>
+
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width" style="width: 65%;">
+                    <mat-label>Password</mat-label>
+                    <input type="password" style="width: 100%;" matInput placeholder="Password" [(ngModel)]="credentials.password" name="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required>
+                    <small class=" text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                </mat-form-field>
+                <br>
+                <button [disabled]="loginForm.form.invalid" mat-raised-button color="primary" type="submit" routerLinkActive="router-link-active">Login</button>&nbsp;&nbsp;
+                <button mat-raised-button color="accent" (click)="reset(loginForm)">Reset</button><br>
+                <br>
+                <button style="width: 50%; background-color: rgb(6, 243, 144); color: white;" mat-raised-button color="accent" [routerLink]="['/serviprovider/register']">Register</button>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>

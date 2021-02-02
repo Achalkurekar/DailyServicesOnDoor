@@ -1,0 +1,40 @@
+<br>
+<br>
+
+<div class="container" style="width: 70%;">
+    <h2 style="text-align: center; color: lightseagreen;">List Of All User</h2>
+    <br>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>S.No</td>
+                <td>Service Date</td>
+                <td>View User</td>
+                <td> View Service_Provider</td>
+                <td>Feedback Status</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of AllServices; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.serDate}}</td>
+                <td>
+                    <button type="button" style="width: 75%;" (click)="viewUser(item.user_id)" class="btn btn-sm btn-block btn-primary">View User</button>
+                </td>
+                <td><button type="button" style="background-color: rgb(255, 0, 128); width: 50%; border-color:rgb(255, 0, 128) ;" (click)="viewSp(item.service_provider)" class="btn btn-sm btn-block btn-primary">Service Provider</button>
+                </td>
+                <td>
+                    <button *ngIf="item.feedback_id!=0" type="button" style="background-color: rgb(255, 0, 128); width: 50%; border-color:rgb(9, 255, 0) ;" (click)="viewFeedback(item.feedback_id)" class="btn btn-sm btn-block btn-primary">View Feedback</button>
+                    <button *ngIf="item.feedback_id===0" type="button" style="background-color: rgb(255, 0, 128); width: 50%; border-color:rgb(156, 33, 3) ;" (click)="viewSp(item.service_provider)" disabled class="btn btn-sm btn-block btn-primary">Not Filled</button>
+                </td>
+
+
+
+            </tr>
+        </tbody>
+
+    </table>
+</div>

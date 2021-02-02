@@ -1,0 +1,33 @@
+<form #RegisterForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="container" style="width: 50%;">
+        <br>
+        <div style="text-align: center;">
+            <span class="badge badge-primary" style="font-size: 25px;">Fill Feedback</span>
+            <br>
+            <br>
+            <img src="../../../assets/feedback.png" alt="Feedback" style="width: 230px; height: 230px;">
+        </div>
+        <div class="form-group mt-3 ml-5 mr-5">
+            <label class="form-conrol"> Rating  *</label><br>
+            <ngb-rating style=" color: #2083d4;
+    font-size: 50px;" [max]="5" name="rating" [(rate)]="Feed.rating" [(ngModel)]="Feed.rating" [readonly]="false" required></ngb-rating>
+
+
+        </div>
+
+
+        <div class="form-group mt-3 ml-5 mr-5">
+            <label class="form-conrol">Description *</label>
+            <textarea rows="4 " cols="50 " class="form-control " placeholder="Description" [(ngModel)]="Feed.description" #address="ngModel" name="address" required [class.is-invalid]="address.invalid && address.touched"></textarea>
+            <small class="text-danger" [class.d-none]="address.valid || address.untouched">Description is required Field</small>
+        </div>
+        <div class="form-group mt-3 ml-5 mr-5">
+            <input type="submit" [disabled]="RegisterForm.form.invalid" class="btn btn-block btn-login" mat-raised-button color="primary" style=" color: white; background-color:rgb(52, 121, 153);" value="Register " />
+        </div>
+        <br>
+        <br>
+
+
+    </div>
+</form>

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="" style="text-decoration: none; text-align: center; padding-right: 10px;">
+            <img src="https://img.icons8.com/cotton/45/000000/home--v2.png" />
+        </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  text-dark">
+                <li class="nav-item active">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/service">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">User login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/spLogin">Service Provider</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/adminLogin">Admin</a>
+                </li>
+
+
+
+            </ul>
+
+        </div>
+        <button *ngIf="service.UserisLoggedIn()" mat-raised-button style="padding-right: 30px;" color="accent" [matMenuTriggerFor]="menu"><img src="https://img.icons8.com/cotton/30/000000/user-male.png">{{service.getUserName()}}</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/userProfile']">Profile</button>
+            <button mat-menu-item [routerLink]="['/userUpdate']">Update Profile</button>
+            <button mat-menu-item [routerLink]="['/view/service']">All Services</button>
+          
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        <button *ngIf="service.SpisLoggedIn()" mat-raised-button style="padding-right: 50px;" color="accent" [matMenuTriggerFor]="menu1"><img src="https://img.icons8.com/cotton/30/000000/user-male.png">{{service.getSpName()}}</button>
+        <mat-menu #menu1="matMenu">
+            <button mat-menu-item [routerLink]="['/service/view']">Profile</button>            
+            <button mat-menu-item [routerLink]="['/serviprovider/spNotify']">Service Notification</button>
+            <button mat-menu-item [routerLink]="['/viewServiceById']">All Services</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        <button mat-raised-button *ngIf="service.AdminisLoggedIn()" style="padding-right: 30px;" color="accent" [matMenuTriggerFor]="menu2"><img src="https://img.icons8.com/cotton/30/000000/user-male.png">Priyanshi</button>
+        <mat-menu #menu2="matMenu">
+            <button mat-menu-item [routerLink]="['/AllServices']">All Services</button>
+            <button mat-menu-item [routerLink]="['/AllUser']">All Users</button>
+            <button mat-menu-item [routerLink]="['/AllServiceProvider']">All Service Provider</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+
+    </div>
+</nav>

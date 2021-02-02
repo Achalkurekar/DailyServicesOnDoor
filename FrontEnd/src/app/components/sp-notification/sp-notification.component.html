@@ -1,0 +1,32 @@
+<div class="container" style="width: 50%;">
+    <br>
+    <br>
+
+    <table class="table  table-hover">
+        <thead>
+            <tr class="table-primary">
+                <td>S.No.</td>
+                <td>Status</td>
+                <td>View</td>
+                <td>Accept</td>
+                <td>Denied</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ServiceData;let i = index">
+                <td>{{i+1}}</td>
+                <td><span *ngIf="item.serstatus==1">Not Accepted Not Denied </span></td>
+                <td><button type="button" style="background-color: rgb(32, 158, 216) ; color: white;" class="form-control btn-sm" (click)="view(item.user_id)">View</button></td>
+                <td>
+                    <button type="button" style="background-color: rgb(41, 235, 99) ; color: white;" class="form-control btn-sm" (click)="alow(item.id)">Allow</button>
+
+                </td>
+                <td>
+                    <button type="button" style="background-color: rgb(235, 41, 131) ; color: white;" class="form-control btn-sm" (click)="deny(item.id)">Deny</button>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <br>
+    <br>
+
+    <table class="table  table-hover">
+        <thead>
+            <tr class="table-primary">
+                <td>S.No.</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Gender</td>
+                <td>Mobile</td>
+                <td>Experience</td>
+                <td>Address</td>
+                <td>Charges</td>
+                <td>DOB</td>
+                <td>Book</td>
+                <td>View</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Drivers;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.experience}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.charges}}</td>
+                <td>{{item.dob}}</td>
+                <td>
+                    <button type="button" *ngIf="!(admin)" style="background-color: rgb(235, 41, 131) ; color: white;" class="form-control btn-sm" (click)="Book(item.serviceProviderId)">Book</button>
+                    <button type="button" *ngIf="admin" style="background-color: rgb(19, 15, 54) ; color: white; " disabled class="form-control btn-sm">Not Allowed</button>
+
+                </td>
+                <td><button type="button" style="background-color: rgb(38, 146, 189) ; color: white;" class="form-control btn-sm" (click)="view(item.serviceProviderId)">View</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
